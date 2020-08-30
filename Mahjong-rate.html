@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻雀のレート計算機</title>
+    <link rel="stylesheet" href="Mahjong-rate.css">
+</head>
+<body>
+    <h2>麻雀のレートを計算してツイート出来るやつ(4人用)</h2>
+    <p>made by @naru_shiny</p>
+    <table id="score-table">
+        <tr>
+            <th><input type="text" id="user-name1" size="20" maxlength="20" placeholder="プレイヤー1"></th>
+            <th><input type="text" id="user-name2" size="20" maxlength="20" placeholder="プレイヤー2"></th>
+            <th><input type="text" id="user-name3" size="20" maxlength="20" placeholder="プレイヤー3"></th>
+            <th><input type="text" id="user-name4" size="20" maxlength="20" placeholder="プレイヤー4"></th>
+        </tr>
+        <tr>
+            <td><input type="text" id="score1-1" size="20" maxlength="6" placeholder="点数"></td>
+            <td><input type="text" id="score2-1" size="20" maxlength="6" placeholder="点数"></td>
+            <td><input type="text" id="score3-1" size="20" maxlength="6" placeholder="点数"></td>
+            <td><input type="text" id="score4-1" size="20" maxlength="6" placeholder="点数"></td>
+        </tr>
+    </table>
+    <button id="calc">計算</button>
+    <div id="result-area"></div>
+    <div id="tweet-area"></div>
+    <script src="Mahjong-rate.js"></script>
+</body>
+</html>
