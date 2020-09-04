@@ -90,7 +90,7 @@ calculateButton.onclick = () => {
     removeAllChildren(resultDivided);
     for(let i = 0; i < PLAYER_NUM; i++) {
         const playerRate = document.createElement('p');
-        playerRate.innerText = userNames[i] + '    ' + rates[i];
+        playerRate.innerText = userNames[i] + '    ' + rates[i].toFixed(1);
         resultDivided.appendChild(playerRate);
     }
 
