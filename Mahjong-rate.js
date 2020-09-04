@@ -31,6 +31,8 @@ function compareFunc(a, b) {
 // 計算ボタンを押したときの処理
 calculateButton.onclick = () => {
 
+    // TODO 一度入力した部分の計算をやり直すh
+    
     // プレイヤー名を受け取る
     const userNames = [];
     for(let i = 1; i <= PLAYER_NUM; i++) {
@@ -60,6 +62,8 @@ calculateButton.onclick = () => {
         alert('点数の合計が正しくありません');
         return;
     }
+
+    // TODO 順位ボーナスを受け取る
 
     // 順位ボーナスの設定、振り分けをする
     const bonusScores = Array(PLAYER_NUM); // プレイヤーごとの勝ち点を格納する配列
