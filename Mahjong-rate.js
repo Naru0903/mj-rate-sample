@@ -9,10 +9,6 @@ if (window.location.href.split('/').pop() === 'Mahjong-rate.html') {
 }else if (window.location.href.split('/').pop() === 'Mahjong-rate3.html'){
     PLAYER_NUM = 3;
 }
-const startPoint = 25000; // 持ち点
-const returnPoint = 30000; // 返し点
-// const rankBonus = Array(PLAYER_NUM);
-const rankBonus = [20, 10, -10, -20]; // 順位ボーナス
 const rates = Array(PLAYER_NUM);
 rates.fill(0);
 let count = 1;
@@ -31,7 +27,27 @@ function compareFunc(a, b) {
 // 計算ボタンを押したときの処理
 calculateButton.onclick = () => {
 
-    // TODO 一度入力した部分の計算をやり直すh
+    // TODO 一度入力した部分の計算をやり直す機能の実装
+
+    // 持ち点、返してん、順位ボーナスを受け取る
+    if (isNaN(document.getElementById('start-point').value) || document.getElementById('start-point').value === "" || document.getElementById('start-point').value === null){
+        alert('持ち点の入力に不備があります');
+        return;
+    }
+    if (isNaN(document.getElementById('return-point').value) || document.getElementById('return-point').value === "" || document.getElementById('return-point').value === null){
+        alert('返し点の入力に不備があります');
+        return;
+    }
+    const startPoint = Number(document.getElementById('start-point').value); // 持ち点
+    const returnPoint = Number(document.getElementById('return-point').value); // 返し点
+    const rankBonus = Array(PLAYER_NUM); // 順位ボーナス
+    for (let i = 1; i <= PLAYER_NUM; i++) {
+        if (isNaN(document.getElementById('rank-bonus' + i).value) || document.getElementById('rank-bonus' + i).value === "" || document.getElementById('rank-bonus' + i).value === null){
+            alert('持ち点の入力に不備があります');
+            return;
+        }
+        rankBonus[i-1] = Number(document.getElementById('rank-bonus' + i).value); 
+    }
     
     // プレイヤー名を受け取る
     const userNames = [];
