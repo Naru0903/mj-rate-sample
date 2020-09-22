@@ -69,17 +69,20 @@ calculateButton.onclick = () => {
         gameScores.push(Number(document.getElementById('score' + i + '-' + count).value));
     }
 
+    // 供託の点数を受け取る
+    const kyotakuPoint = Number(document.getElementById('kyotaku' + count).value);
+    
+
     // 点数の合計が合わないときにお知らせしてくれる
     let scoreSum = 0;
     for (let i = 0; i < PLAYER_NUM; i++) {
         scoreSum += gameScores[i];
     }
+    scoreSum += kyotakuPoint;
     if (scoreSum !== startPoint*PLAYER_NUM) {
         alert('点数の合計が正しくありません');
         return;
     }
-
-    // TODO 順位ボーナスを受け取る
 
     // 順位ボーナスの設定、振り分けをする
     const bonusScores = Array(PLAYER_NUM); // プレイヤーごとの勝ち点を格納する配列
@@ -126,6 +129,19 @@ calculateButton.onclick = () => {
         newInput.setAttribute('placeholder', '点数');
         newTableData.appendChild(newInput);
     }
+    const newTableData = document.createElement('td');
+    newTableRow.appendChild(newTableData);
+    const newInput = document.createElement('input');
+    const newInputId = 'kyotaku' + count;
+    newInput.setAttribute('id', newInputId);
+    newInput.setAttribute('type', 'text');
+    newInput.setAttribute('size', '20');
+    newInput.setAttribute('maxlength', '6');
+    newInput.setAttribute('placeholder', '供託');
+    newTableData.appendChild(newInput);
+
+
+
 
     // ツイートエリア
     // <a href="https://twitter.com/intent/tweet?button_hashtag=麻雀レート計算結果&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #今日の麻雀</a>
